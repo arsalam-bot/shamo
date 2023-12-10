@@ -50,7 +50,123 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // Widget header() {
+  Widget categories() {
+    return Container(
+      margin: EdgeInsets.only(
+        top: defaultMargin,
+      ),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            SizedBox(
+              width: defaultMargin,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 10,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: primaryColor,
+              ),
+              margin: EdgeInsets.only(right: 16),
+              child: Text(
+                "All Shoes",
+                style: primaryTextStyle.copyWith(
+                  fontSize: 13,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 10,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: transparentColor,
+                border: Border.all(color: subtitleColor),
+              ),
+              margin: EdgeInsets.only(right: 16),
+              child: Text(
+                "Running",
+                style: subtitleTextStyle.copyWith(
+                  fontSize: 13,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 10,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: transparentColor,
+                border: Border.all(color: subtitleColor),
+              ),
+              margin: EdgeInsets.only(right: 16),
+              child: Text(
+                "Training",
+                style: subtitleTextStyle.copyWith(
+                  fontSize: 13,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 10,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: transparentColor,
+                border: Border.all(color: subtitleColor),
+              ),
+              margin: EdgeInsets.only(right: 16),
+              child: Text(
+                "Basketball",
+                style: subtitleTextStyle.copyWith(
+                  fontSize: 13,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 10,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: transparentColor,
+                border: Border.all(color: subtitleColor),
+              ),
+              margin: EdgeInsets.only(right: 16),
+              child: Text(
+                "Hiking",
+                style: subtitleTextStyle.copyWith(
+                  fontSize: 13,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Widget popularProduct() {
+  //   return Container();
+  // }
+
+  // Widget newArrivals() {
   //   return Container();
   // }
 
@@ -59,7 +175,7 @@ class HomePage extends StatelessWidget {
     return ListView(
       children: [
         header(),
-        // category(),
+        categories(),
         // popularProduct(),
         // newArrivals(),
       ],
