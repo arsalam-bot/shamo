@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shamo/shared/theme.dart';
 
 class ProductPage extends StatefulWidget {
@@ -302,13 +303,16 @@ class _ProductPageState extends State<ProductPage> {
       );
     }
 
-    return Scaffold(
-        backgroundColor: backgroundColor6,
-        body: ListView(
-          children: [
-            header(),
-            content(),
-          ],
-        ));
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(statusBarColor: transparentColor),
+      child: Scaffold(
+          backgroundColor: backgroundColor6,
+          body: ListView(
+            children: [
+              header(),
+              content(),
+            ],
+          )),
+    );
   }
 }

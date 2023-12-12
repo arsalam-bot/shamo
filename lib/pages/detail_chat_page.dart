@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shamo/shared/theme.dart';
 import 'package:shamo/widgets/chat_buble.dart';
 
@@ -157,11 +158,14 @@ class DetailChatPage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: backgroundColor3,
-      appBar: header(),
-      bottomNavigationBar: chatInput(),
-      body: content(),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(statusBarColor: transparentColor),
+      child: Scaffold(
+        backgroundColor: backgroundColor3,
+        appBar: header(),
+        bottomNavigationBar: chatInput(),
+        body: content(),
+      ),
     );
   }
 }

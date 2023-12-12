@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shamo/shared/theme.dart';
 
 class SplashPage extends StatefulWidget {
@@ -25,16 +26,19 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor1,
-      body: Center(
-        child: Container(
-          width: 130,
-          height: 150,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                'assets/image_splash.png',
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(statusBarColor: transparentColor),
+      child: Scaffold(
+        backgroundColor: backgroundColor1,
+        body: Center(
+          child: Container(
+            width: 130,
+            height: 150,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/image_splash.png',
+                ),
               ),
             ),
           ),

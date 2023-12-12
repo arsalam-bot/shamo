@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shamo/shared/theme.dart';
 
 class EditProfilePage extends StatelessWidget {
@@ -151,11 +152,14 @@ class EditProfilePage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: backgroundColor3,
-      appBar: header(),
-      body: content(),
-      resizeToAvoidBottomInset: false,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(statusBarColor: transparentColor),
+      child: Scaffold(
+        backgroundColor: backgroundColor3,
+        appBar: header(),
+        body: content(),
+        resizeToAvoidBottomInset: false,
+      ),
     );
   }
 }
