@@ -78,7 +78,7 @@ class CartCard extends StatelessWidget {
                 style: alertTextStyle.copyWith(fontSize: 12, fontWeight: light),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
