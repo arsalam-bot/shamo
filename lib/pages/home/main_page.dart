@@ -55,7 +55,7 @@ class _MainPageState extends State<MainPage> {
           padding: EdgeInsets.symmetric(vertical: 0),
           shape: CircularNotchedRectangle(),
           notchMargin: 12,
-          clipBehavior: Clip.antiAlias,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
           child: BottomNavigationBar(
             backgroundColor: backgroundColor4,
             currentIndex: currentIndex,
