@@ -38,4 +38,30 @@ class AuthService {
       throw Exception('Gagal Register');
     }
   }
+
+  Future<UserModel> login({
+    required String email,
+    required String password,
+  }) async {
+    var url = '$baseUrl/login';
+    var headers = {'Content-Type': 'application/json'};
+    var body = jsonEncode({
+      'email': email,
+      'password': password,
+    });
+
+    var response =
+        await http.post(Uri.parse(url), headers: headers, body: body);
+    print(response.body);
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body)['data'];
+      UserModel dataUser = UserModel.fromJson(data['user']);
+      dataUser.token = 'Bearer ' + data['access_token'];
+      // dataUser.token = 'Bearer ${data['access_token']}';
+
+      return dataUser;
+    } else {
+      throw Exception('Gagal Login');
+    }
+  }
 }
