@@ -17,18 +17,6 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  final List familiarShoes = [
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-    "assets/image_shoes.png",
-  ];
-
   int currentIndex = 0;
 
   bool isWishlist = false;
@@ -111,22 +99,6 @@ class _ProductPageState extends State<ProductPage> {
       );
     }
 
-    Widget familiarShoesCard(String imageUrl) {
-      return Container(
-        width: 54,
-        height: 54,
-        margin: EdgeInsets.only(right: 16),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              imageUrl,
-            ),
-          ),
-          borderRadius: BorderRadius.circular(6),
-        ),
-      );
-    }
-
     Widget header() {
       int index = -1;
       return Column(
@@ -182,7 +154,6 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     Widget content() {
-      int index = -1;
       return Container(
         width: double.infinity,
         margin: EdgeInsets.only(top: 17),

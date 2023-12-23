@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/models/product_model.dart';
+import 'package:shamo/pages/product_page.dart';
 
 class FamiliarShoes extends StatelessWidget {
   final ProductModel dataProducts;
@@ -7,17 +8,22 @@ class FamiliarShoes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 54,
-      height: 54,
-      // margin: EdgeInsets.only(right: 16),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(
-            dataProducts.galleries[0].url.toString(),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ProductPage(dataProducts)));
+      },
+      child: Container(
+        width: 54,
+        height: 54,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              dataProducts.galleries[0].url.toString(),
+            ),
           ),
+          borderRadius: BorderRadius.circular(6),
         ),
-        borderRadius: BorderRadius.circular(6),
       ),
     );
   }
