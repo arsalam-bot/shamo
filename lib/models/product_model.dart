@@ -26,17 +26,18 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-        id: json['id'],
-        name: json['name'],
-        price: double.parse(json['price'].toString()),
-        description: json['description'],
-        tags: json['tags'],
-        category: CategoryModel.fromJson(json['category']),
-        createdAt: DateTime.parse(json['created_at']),
-        updatedAt: DateTime.parse(json['updated_at']),
-        galleries: json['galleries']
-            .map((gallery) => GalleryModel.fromJson(gallery))
-            .toList());
+      id: json['id'],
+      name: json['name'],
+      price: double.parse(json['price'].toString()),
+      description: json['description'],
+      tags: json['tags'],
+      category: CategoryModel.fromJson(json['category']),
+      createdAt: DateTime.parse(json['created_at']),
+      updatedAt: DateTime.parse(json['updated_at']),
+      galleries: json['galleries']
+          .map<GalleryModel>((gallery) => GalleryModel.fromJson(gallery))
+          .toList(),
+    );
   }
 
   Map<String, dynamic> toJson() {
