@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/models/product_model.dart';
+import 'package:shamo/pages/product_page.dart';
 import 'package:shamo/shared/theme.dart';
 
 class ProductCard extends StatelessWidget {
@@ -11,7 +12,8 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/product');
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ProductPage(dataProducts)));
       },
       child: Container(
         width: 215,
