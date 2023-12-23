@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shamo/models/product_model.dart';
 import 'package:shamo/providers/product_provider.dart';
+import 'package:shamo/providers/wishlist_provider.dart';
 import 'package:shamo/shared/theme.dart';
 import 'package:shamo/widgets/familiar_shoes.dart';
 
@@ -19,11 +20,10 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   int currentIndex = 0;
 
-  bool isWishlist = false;
-
   @override
   Widget build(BuildContext context) {
     ProductProvider productProvider = Provider.of<ProductProvider>(context);
+    WishlistProvider wishlistProvider = Provider.of<WishlistProvider>(context);
     Future<void> showSuccessDialog() async {
       return showDialog(
         context: context,
@@ -196,10 +196,8 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      setState(() {
-                        isWishlist = !isWishlist;
-                      });
-                      if (isWishlist) {
+                      wishlistProvider.setProduct(widget.dataProducts);
+                      if (wishlistProvider.isWishlist(widget.dataProducts)) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             backgroundColor: secondaryColor,
@@ -207,6 +205,7 @@ class _ProductPageState extends State<ProductPage> {
                               "Has been added to the Wishlist",
                               textAlign: TextAlign.center,
                             ),
+                            duration: Durations.long4,
                           ),
                         );
                       } else {
@@ -217,12 +216,13 @@ class _ProductPageState extends State<ProductPage> {
                               "Has been removed to the Wishlist",
                               textAlign: TextAlign.center,
                             ),
+                            duration: Durations.long4,
                           ),
                         );
                       }
                     },
                     child: Image.asset(
-                      isWishlist
+                      wishlistProvider.isWishlist(widget.dataProducts)
                           ? "assets/button_wishlist_blue.png"
                           : "assets/button_wishlist.png",
                       width: 46,
