@@ -4,7 +4,7 @@ class UserModel {
   String email;
   String username;
   String profilePhotoUrl;
-  String? token;
+  String token;
 
   UserModel({
     required this.id,
@@ -12,7 +12,7 @@ class UserModel {
     required this.email,
     required this.username,
     required this.profilePhotoUrl,
-    this.token,
+    required this.token,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -22,7 +22,7 @@ class UserModel {
       email: json['email'],
       username: json['username'],
       profilePhotoUrl: json['profile_photo_url'],
-      token: json['access_token'],
+      token: json['access_token'].toString(),
     );
   }
 

@@ -47,7 +47,10 @@ class CheckoutSuccessPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, "/home", (route) => false);
+                },
                 child: Text(
                   "Order other shoes",
                   style: primaryTextStyle.copyWith(

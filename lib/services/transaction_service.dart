@@ -19,7 +19,7 @@ class TransactionService {
           .toList(),
       'status': "PENDING",
       'total_price': totalPrice,
-      'shipping': 0,
+      'shipping_price': 0,
     });
     var response = await http.post(
       Uri.parse(url),
